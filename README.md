@@ -63,8 +63,7 @@ A sample of the generated json formatted data is as follows :
 ![](https://cdn-images-1.medium.com/max/1600/1*Z8WDPba2EAWOKbHnC651kw.png)
 
 The above dataset consisting of 220 annotated resumes can be found
-[here](https://dataturks.com/projects/abhishek.narayanan/Entity Recognition in
-Resumes). We train the model with 200 resume data and test it on 20 resume data.
+[here](https://dataturks.com/projects/abhishek.narayanan/Entity%20Recognition%20in%20Resumes). We train the model with 200 resume data and test it on 20 resume data.
 
 #### Training the Model :
 
