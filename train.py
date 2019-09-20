@@ -18,10 +18,10 @@ def convert_dataturks_to_spacy(dataturks_JSON_FilePath):
         training_data = []
         lines=[]
         with open(dataturks_JSON_FilePath, 'r') as f:
-            lines = f.readlines()
-
-        for line in lines:
-            data = json.loads(line)
+            lines = f.read()
+        lines = json.loads(lines)
+        for line in lines['object']:
+            data = line
             text = data['content']
             entities = []
             for annotation in data['annotation']:
@@ -48,7 +48,7 @@ import spacy
 ################### Train Spacy NER.###########
 def train_spacy():
 
-    TRAIN_DATA = convert_dataturks_to_spacy("/home/abhishekn/dataturks/entityrecognition/traindata.json")
+    TRAIN_DATA = convert_dataturks_to_spacy("traindata.json")
     nlp = spacy.blank('en')  # create blank Language class
     # create the built-in pipeline components and add them to the pipeline
     # nlp.create_pipe works for built-ins that are registered with spaCy
@@ -79,7 +79,7 @@ def train_spacy():
                     losses=losses)
             print(losses)
     #test the model and evaluate it
-    examples = convert_dataturks_to_spacy("/home/abhishekn/dataturks/entityrecognition/testdata.json")
+    examples = convert_dataturks_to_spacy("testdata.json")
     tp=0
     tr=0
     tf=0
