@@ -1,0 +1,47 @@
+
+
+Years of Experience:
++ years
+
+
+Companies worked at:
+Infosys Limited
+
+
+Graduation Year:
+2012
+2010
+
+
+College Name:
+Sri Venkateshwara College of Engineering
+
+
+Email Address:
+indeed.com/r/Dhanushkodi-Raj/cf31bbac6c5a5d29
+
+
+Location:
+Chennai
+
+
+Degree:
+e-banking system is a comprehensive corporate and small business bankingsolution providing a single unified view of the corporate banking relationships across asset andliability products, limits, trade finance and cash management. Corporate customers of the bankgain the flexibility to view details of each account, capability to make Inter-bank and Intra-bankpayments, access to trade finance information and transactions, and the ability to perform cashmanagement activities. This also supports comprehensive authorization workflow, Transaction
+Bachelor's in Computer Science
+
+
+Skills:
+TESTING (9 years), JAVA (3 years), JUNIT (2 years), ORACLE (2 years), API (1 year)
+Automation Testing Tools: Selenium WebDriver, Cucumber, Maven, Jenkins, CyaraLanguages/Frameworks: JAVA, Data Driven, Hybrid, Page Object model, SOAP UI, JUnit, TestNG(TDD), Gherkin language (BDD), Cucumber, Log 4jDefect Tracking Tools: JIRA, HP ALMAPI Webservices Automation Skills: SOAP, REST, HttpClient, SOAP UI, XML, Jmeter, PostmanTest Management Tools: HP ALM, Confluence pageRDBMS: MySQL, Oracle, Mongo DBSource Control Management: SVN, GITOperating Systems: WindowsDomain Knowledge: E-commerce, Financial, Banking, Telecom, Billing
+
+
+Name:
+Dhanushkodi Raj
+
+
+Designation:
+Technology Analyst
+Software QA Engineer
+PGE project
+Automation Test Analyst
+Software Test Analyst

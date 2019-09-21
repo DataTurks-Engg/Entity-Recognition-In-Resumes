@@ -17,7 +17,7 @@ def convert_dataturks_to_spacy(dataturks_JSON_FilePath):
     try:
         training_data = []
         lines=[]
-        with open(dataturks_JSON_FilePath, 'r') as f:
+        with open(dataturks_JSON_FilePath, 'r',encoding='UTF-8') as f:
             lines = f.read()
         lines = json.loads(lines)
         for line in lines['object']:
@@ -88,7 +88,7 @@ def train_spacy():
     c=0        
     for text,annot in examples:
 
-        f=open("resume"+str(c)+".txt","w")
+        f=open("parsed_examples/resume"+str(c)+".txt","w")
         doc_to_test=nlp(text)
         d={}
         for ent in doc_to_test.ents:
