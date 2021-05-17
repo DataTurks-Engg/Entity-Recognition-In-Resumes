@@ -45,10 +45,41 @@ def convert_dataturks_to_spacy(dataturks_JSON_FilePath):
         return None
 
 import spacy
+import re
+
+def trim_entity_spans(data: list) -> list:
+    """Removes leading and trailing white spaces from entity spans.
+
+    Args:
+        data (list): The data to be cleaned in spaCy JSON format.
+
+    Returns:
+        list: The cleaned data.
+    """
+    invalid_span_tokens = re.compile(r'\s')
+
+    cleaned_data = []
+    for text, annotations in data:
+        entities = annotations['entities']
+        valid_entities = []
+        for start, end, label in entities:
+            valid_start = start
+            valid_end = end
+            while valid_start < len(text) and invalid_span_tokens.match(
+                    text[valid_start]):
+                valid_start += 1
+            while valid_end > 1 and invalid_span_tokens.match(
+                    text[valid_end - 1]):
+                valid_end -= 1
+            valid_entities.append([valid_start, valid_end, label])
+        cleaned_data.append([text, {'entities': valid_entities}])
+
+    return cleaned_data
+
 ################### Train Spacy NER.###########
 def train_spacy():
 
-    TRAIN_DATA = convert_dataturks_to_spacy("/home/abhishekn/dataturks/entityrecognition/traindata.json")
+    TRAIN_DATA = convert_dataturks_to_spacy("./traindata.json")
     nlp = spacy.blank('en')  # create blank Language class
     # create the built-in pipeline components and add them to the pipeline
     # nlp.create_pipe works for built-ins that are registered with spaCy
@@ -57,6 +88,7 @@ def train_spacy():
         nlp.add_pipe(ner, last=True)
        
 
+    TRAIN_DATA = trim_entity_spans(TRAIN_DATA)
     # add labels
     for _, annotations in TRAIN_DATA:
          for ent in annotations.get('entities'):
@@ -71,6 +103,7 @@ def train_spacy():
             random.shuffle(TRAIN_DATA)
             losses = {}
             for text, annotations in TRAIN_DATA:
+                print(losses)
                 nlp.update(
                     [text],  # batch of texts
                     [annotations],  # batch of annotations
@@ -79,7 +112,7 @@ def train_spacy():
                     losses=losses)
             print(losses)
     #test the model and evaluate it
-    examples = convert_dataturks_to_spacy("/home/abhishekn/dataturks/entityrecognition/testdata.json")
+    examples = convert_dataturks_to_spacy("./testdata.json")
     tp=0
     tr=0
     tf=0
